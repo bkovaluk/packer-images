@@ -2,7 +2,8 @@
 
 variable dockerhub_username {
   type      = string
-  sensitive = true 
+  sensitive = true
+  default   = "username"
 }
 
 variable "node_version" {
