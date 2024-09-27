@@ -1,9 +1,9 @@
 // images/common-deploy/common-deploy.pkr.hcl
 
-variable "dockerhub_username" {
-  type      = string
-  sensitive = true
-  default   = "username"
+variable "source_image" {
+  description = "The base Docker image to build upon."
+  type        = string
+  default     = "amazonlinux:latest"
 }
 
 variable "terraform_version" {
@@ -26,6 +26,11 @@ variable "kubectl_version" {
   default = "latest"
 }
 
+variable "dockerhub_username" {
+  type      = string
+  sensitive = true
+  default   = "username"
+}
 
 packer {
   required_plugins {
@@ -50,7 +55,7 @@ build {
       "TERRAFORM_VERSION=${var.terraform_version}",
       "PACKER_VERSION=${var.packer_version}",
       "AWS_CLI_VERSION=${var.aws_cli_version}",
-      "KUBECTL_VERSION=${var.kubectl_version}",
+      "KUBECTL_VERSION"=${var.kubectl_version}",
     ]
     scripts = [
       "../../shared-scripts/update_system.sh",

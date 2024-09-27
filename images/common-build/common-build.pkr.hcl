@@ -1,9 +1,9 @@
 // images/common-build/common-build.pkr.hcl
 
-variable dockerhub_username {
-  type      = string
-  sensitive = true
-  default   = "username"
+variable "source_image" {
+  description = "The base Docker image to build upon."
+  type        = string
+  default     = "amazonlinux:latest"
 }
 
 variable "node_version" {
@@ -21,6 +21,11 @@ variable "java_package" {
   default = "java-11-amazon-corretto"
 }
 
+variable dockerhub_username {
+  type      = string
+  sensitive = true
+  default   = "username"
+}
 
 packer {
   required_plugins {
