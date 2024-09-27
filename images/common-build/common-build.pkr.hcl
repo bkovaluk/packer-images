@@ -9,14 +9,14 @@ packer {
 
 includes = ["../../variables/global.pkr.hcl", "variables.pkr.hcl"]
 
-source "docker" "common_build" {
+source "docker" "common-build" {
   image  = var.source_image
   commit = true
 }
 
 build {
   name    = "common-build-image"
-  sources = ["source.docker.common_build"]
+  sources = ["source.docker.common-build"]
 
   provisioner "shell" {
     environment_vars = [
@@ -25,17 +25,19 @@ build {
       "JAVA_PACKAGE={{user `java_package`}}",
     ]
     scripts = [
+      "../../shared-scripts/update_system.sh",
+      "../../shared-scripts/install_utility_tools.sh",
       "scripts/install_node.sh",
-      "scripts/install_python.sh",
       "scripts/install_java.sh",
       "scripts/install_gradle.sh",
+      "../../shared-scripts/install_python.sh",
       "scripts/test_image.sh",
       "../../shared-scripts/cleanup.sh",
     ]
   }
 
   post-processor "docker-tag" {
-    repository = "your-dockerhub-username/common-build-image"
+    repository = "${var.dockerhub_username}/common-build-image"
     tag        = "latest"
   }
 }

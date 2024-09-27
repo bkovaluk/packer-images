@@ -1,25 +1,25 @@
 #!/bin/bash
 
-# Test the installed software
+set -euo pipefail
 
-set -e  # Exit immediately if a command exits with a non-zero status
+echo "Testing installed tools..."
 
-# Test Node.js and npm
-echo "Testing Node.js and npm"
+echo "Node.js version:"
 node -v
+
+echo "npm version:"
 npm -v
 
-# Test Python 3 and pip
-echo "Testing Python 3 and pip"
+echo "Python version:"
 python3 --version
+
+echo "pip version:"
 pip3 --version
 
-# Test Java
-echo "Testing Java"
+echo "Java version:"
 java -version
 
-# Test Gradle
-echo "Testing Gradle"
+echo "Gradle version:"
 gradle -v
 
-echo "All tests passed!"
+echo "All tools are installed correctly."

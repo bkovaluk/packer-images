@@ -1,15 +1,21 @@
 #!/bin/bash
 
-# Install Packer
+set -euo pipefail
 
-# Ensure that PACKER_VERSION is set
-if [ -z "$PACKER_VERSION" ]; then
-  echo "PACKER_VERSION is not set. Using default version 1.9.2"
-  PACKER_VERSION="1.9.2"
-fi
+PACKER_VERSION="${PACKER_VERSION:-1.9.4}"
+DOWNLOAD_URL="https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip"
 
-echo "Installing Packer version $PACKER_VERSION"
+echo "Installing Packer version $PACKER_VERSION..."
 
-wget https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip
-unzip packer_${PACKER_VERSION}_linux_amd64.zip -d /usr/local/bin/
-rm packer_${PACKER_VERSION}_linux_amd64.zip
+# Download Packer
+wget -q $DOWNLOAD_URL -O /tmp/packer.zip
+
+# Verify checksum (you can implement checksum verification here if desired)
+
+# Unzip and install
+unzip -o /tmp/packer.zip -d /usr/local/bin
+
+# Verify installation
+packer -version
+
+echo "Packer installation completed."

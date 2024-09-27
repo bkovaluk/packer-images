@@ -1,19 +1,25 @@
 #!/bin/bash
 
-# Test the installed software
+set -euo pipefail
 
-set -e  # Exit immediately if a command exits with a non-zero status
+echo "Testing installed tools..."
 
-# Test AWS CLI
-echo "Testing AWS CLI"
+echo "Python version:"
+python3 --version
+
+echo "pip version:"
+pip3 --version
+
+echo "AWS CLI version:"
 aws --version
 
-# Test Terraform
-echo "Testing Terraform"
+echo "Terraform version:"
 terraform -version
 
-# Test Packer
-echo "Testing Packer"
+echo "Packer version:"
 packer -version
 
-echo "All tests passed!"
+echo "kubectl version:"
+kubectl version --client
+
+echo "All tools are installed correctly."

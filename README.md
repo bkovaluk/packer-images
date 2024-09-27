@@ -33,7 +33,7 @@ packer-images/
 │   │   │   ├── install_gradle.sh
 │   │   │   ├── test_image.sh
 │   │   ├── variables.pkr.hcl
-│   │   ├── common_build.pkr.hcl
+│   │   ├── common-build.pkr.hcl
 │   │   └── README.md
 │   ├── common-deploy/
 │   │   ├── scripts/
@@ -42,7 +42,7 @@ packer-images/
 │   │   │   ├── install_packer.sh
 │   │   │   ├── test_image.sh
 │   │   ├── variables.pkr.hcl
-│   │   ├── common_deploy.pkr.hcl
+│   │   ├── common-deploy.pkr.hcl
 │   │   └── README.md
 │   └── ... (additional images)
 ├── shared-scripts/
@@ -52,8 +52,7 @@ packer-images/
 │   ├── global.pkr.hcl
 │   └── ... (additional variable files)
 ├── builds/
-│   ├── common_build.sh
-│   ├── common_deploy.sh
+│   ├── build_image.sh
 │   ├── build_all.sh
 │   └── ... (additional build scripts)
 ├── .github/
@@ -64,6 +63,7 @@ packer-images/
 ├── docs/
 │   └── ... (documentation)
 └── README.md
+└── Makefile
 ~~~
 
 - **images/**: Contains directories for each image, including Packer configurations and scripts.
@@ -99,10 +99,7 @@ Navigate to the `builds/` directory and execute the build scripts:
 cd builds
 
 # Build the common-build image
-./common_build.sh
-
-# Build the deploy image
-./common_deploy.sh
+./build_image.sh -i "common-build"
 
 # Build all images
 ./build_all.sh
@@ -115,11 +112,11 @@ Navigate to the image directory and run the Packer build command:
 ~~~
 # For the common-build image
 cd images/common-build
-packer build -var-file=variables.pkr.hcl common_build.pkr.hcl
+packer build -var-file=variables.pkr.hcl common-build.pkr.hcl
 
 # For the common-deploy image
 cd images/common-deploy
-packer build -var-file=variables.pkr.hcl common_deploy.pkr.hcl
+packer build -var-file=variables.pkr.hcl common-deploy.pkr.hcl
 ~~~
 
 ## Adding New Images
@@ -133,11 +130,11 @@ To add a new image to the project:
    └── your-new-image/
        ├── scripts/
        ├── variables.pkr.hcl
-       ├── your_new_image.pkr.hcl
+       ├── your-new-image.pkr.hcl
        └── README.md
    ~~~
 
-2. **Create Packer Configuration**: Write a Packer template (`your_new_image.pkr.hcl`) defining the image build process.
+2. **Create Packer Configuration**: Write a Packer template (`your-new-image.pkr.hcl`) defining the image build process.
 
 3. **Write Scripts**: Add any necessary installation or configuration scripts in the `scripts/` directory.
 
@@ -158,7 +155,7 @@ Testing ensures that the images function as expected.
 1. **Build the Image**:
 
    ~~~bash
-   packer build -var-file=variables.pkr.hcl your_image.pkr.hcl
+   packer build -var-file=variables.pkr.hcl your-image.pkr.hcl
    ~~~
 
 2. **Run the Container**:

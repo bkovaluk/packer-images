@@ -12,3 +12,8 @@ variable "aws_cli_version" {
   type    = string
   default = "2.13.8"
 }
+
+variable "kubectl_version" {
+  type    = string
+  default = "latest"
+}

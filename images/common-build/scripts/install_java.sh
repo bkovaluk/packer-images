@@ -1,13 +1,16 @@
 #!/bin/bash
 
-# Install Java
+set -euo pipefail
 
-# Ensure that JAVA_PACKAGE is set
-if [ -z "$JAVA_PACKAGE" ]; then
-  echo "JAVA_PACKAGE is not set. Using default java-11-amazon-corretto"
-  JAVA_PACKAGE="java-11-amazon-corretto"
-fi
+echo "Installing Amazon Corretto 11..."
 
-echo "Installing Java package $JAVA_PACKAGE"
+# Import the public key and install Corretto 11
+curl -sSL https://yum.corretto.aws/corretto.key | rpm --import -
+curl -sSL https://yum.corretto.aws/corretto.repo | tee /etc/yum.repos.d/corretto.repo
 
-dnf install -y $JAVA_PACKAGE
+dnf install -y java-11-amazon-corretto
+
+# Verify installation
+java -version
+
+echo "Java installation completed."

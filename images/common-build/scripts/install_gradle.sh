@@ -1,21 +1,33 @@
 #!/bin/bash
 
-# Install Gradle
+set -euo pipefail
 
-# Ensure that GRADLE_VERSION is set
-if [ -z "$GRADLE_VERSION" ]; then
-  echo "GRADLE_VERSION is not set. Using default version 7.5.1"
-  GRADLE_VERSION="7.5.1"
-fi
+GRADLE_VERSION="${GRADLE_VERSION:-7.5.1}"
+DOWNLOAD_URL="https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip"
+CHECKSUM_URL="${DOWNLOAD_URL}.sha256"
 
-echo "Installing Gradle version $GRADLE_VERSION"
+echo "Installing Gradle version $GRADLE_VERSION..."
 
-wget https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip -P /tmp
+# Download Gradle and checksum
+wget -q $DOWNLOAD_URL -P /tmp
+wget -q $CHECKSUM_URL -P /tmp
+
+# Verify checksum
+(cd /tmp && sha256sum -c gradle-${GRADLE_VERSION}-bin.zip.sha256)
+
+# Extract Gradle
 unzip -d /opt/gradle /tmp/gradle-${GRADLE_VERSION}-bin.zip
+
+# Create symbolic link
 ln -s /opt/gradle/gradle-${GRADLE_VERSION} /opt/gradle/latest
-echo 'export PATH=$PATH:/opt/gradle/latest/bin' >> /etc/profile.d/gradle.sh
-chmod +x /etc/profile.d/gradle.sh
+
+# Add Gradle to PATH
+echo "export PATH=\$PATH:/opt/gradle/latest/bin" >> /etc/profile.d/gradle.sh
+
+# Source the profile script to update PATH
 source /etc/profile.d/gradle.sh
 
-# Clean up
-rm -f /tmp/gradle-${GRADLE_VERSION}-bin.zip
+# Verify installation
+gradle -v
+
+echo "Gradle installation completed."
