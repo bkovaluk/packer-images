@@ -19,7 +19,4 @@ pip3 --version
 echo "Java version:"
 java -version
 
-echo "Gradle version:"
-gradle -v
-
 echo "All tools are installed correctly."
