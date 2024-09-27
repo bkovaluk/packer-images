@@ -1,0 +1,136 @@
+# Logs and Temporary Files
+logs/
+*.log
+*.tmp
+*.lock
+*.pid
+*.swp
+*.swo
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editor and IDE Directories
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Python Bytecode Files
+__pycache__/
+*.pyc
+*.pyo
+
+# Node.js Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Packer Directories and Files
+packer_cache/
+output-*
+
+# Terraform State Files
+*.tfstate
+*.tfstate.backup
+.terraform/
+
+# Ansible Roles and Collections (if applicable)
+roles/
+collections/
+
+# Docker Artifacts
+*.tar
+*.img
+*.iso
+
+# Environment Variables Files
+.env
+*.env
+
+# AWS Credentials and Configurations
+.aws/credentials
+.aws/config
+
+# Sensitive Files
+secrets/
+*.key
+*.pem
+*.crt
+*.der
+*.p12
+*.asc
+
+# Backup Files
+*~
+*.bak
+*.old
+
+# Build and Distribution Directories
+dist/
+build/
+target/
+
+# Temporary Directories and Files
+tmp/
+temp/
+cache/
+
+# Ignore Mac-specific files
+._*
+
+# Ignore Windows-specific files
+$RECYCLE.BIN/
+
+# Ignore NPM Package Locks
+package-lock.json
+yarn.lock
+
+# Ignore Coverage Reports
+coverage/
+
+# Ignore Log Files
+*.log
+
+# Ignore Shell History
+.history
+
+# Ignore Git Hooks
+.hooks/
+
+# Ignore Metadata Files
+*.metadata
+
+# Ignore Python Virtual Environments
+venv/
+.env/
+
+# Ignore Gradle Files (if using Gradle)
+.gradle/
+build/
+
+# Ignore Java Build Artifacts (if applicable)
+*.class
+*.jar
+*.war
+*.ear
+
+# Ignore Kubernetes Configurations (if applicable)
+.kube/
+
+# Ignore Jenkins Workspace (if applicable)
+.workspace/
+
+# Ignore Binaries
+bin/
+obj/
+
+# Ignore CloudWatch Agent Configurations (if applicable)
+amazon-cloudwatch-agent.json
+
+# Ignore Jenkins Agent Files (if applicable)
+agent.jar
