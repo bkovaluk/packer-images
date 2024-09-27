@@ -5,12 +5,12 @@ on:
     branches: [main]
     paths:
       - 'images/common-build/**'
-      - '.github/workflows/build_common_image.yml'
+      - '.github/workflows/common_build_image.yml'
   pull_request:
     branches: [main]
     paths:
       - 'images/common-build/**'
-      - '.github/workflows/build_common_image.yml'
+      - '.github/workflows/common_build_image.yml'
   workflow_dispatch:
 
 jobs:

@@ -46,8 +46,7 @@ build {
     environment_vars = [
       "TERRAFORM_VERSION=${var.terraform_version}",
       "PACKER_VERSION=${var.packer_version}",
-      "AWS_CLI_VERSION=${var.aws_cli_version}",
-      "KUBECTL_VERSION"=${var.kubectl_version}",
+      "KUBECTL_VERSION=${var.kubectl_version}",
     ]
     scripts = [
       "../../shared-scripts/update_system.sh",
