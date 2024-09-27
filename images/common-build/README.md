@@ -4,10 +4,9 @@ This image includes:
 
 - System packages updated to the latest versions.
 - Debugging tools: curl, wget, less, vim.
-- Node.js (version defined in `variables.pkr.hcl`)
+- Node.js (version defined in `variables.auto.pkrvars.hcl`)
 - Python 3 and pip
-- Java (Amazon Corretto 11)
-- Gradle (version defined in `variables.pkr.hcl`)
+- Java (Amazon Corretto)
 
 ## Usage
 

@@ -10,10 +10,6 @@ variable "node_version" {
   type    = string
 }
 
-variable "gradle_version" {
-  type    = string
-}
-
 variable "java_package" {
   type    = string
 }
@@ -53,7 +49,6 @@ build {
       "../../shared-scripts/install_utility_tools.sh",
       "scripts/install_node.sh",
       "scripts/install_java.sh",
-      "scripts/install_gradle.sh",
       "../../shared-scripts/install_python.sh",
       "scripts/test_image.sh",
       "../../shared-scripts/cleanup.sh",
