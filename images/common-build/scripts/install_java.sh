@@ -2,13 +2,11 @@
 
 set -euo pipefail
 
-echo "Installing Amazon Corretto 11..."
+echo "Installing Amazon Corretto..."
 
-# Import the public key and install Corretto 11
-curl -sSL https://yum.corretto.aws/corretto.key | rpm --import -
-curl -sSL https://yum.corretto.aws/corretto.repo | tee /etc/yum.repos.d/corretto.repo
+JAVA_PACKAGE="${JAVA_PACKAGE:-java-21-amazon-corretto}"
 
-dnf install -y java-11-amazon-corretto
+dnf install -y "${JAVA_PACKAGE}"
 
 # Verify installation
 java -version
