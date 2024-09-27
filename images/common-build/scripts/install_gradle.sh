@@ -6,7 +6,7 @@ GRADLE_VERSION="${GRADLE_VERSION:-7.5.1}"
 
 echo "Installing Gradle version $GRADLE_VERSION..."
 
-dnf list available | grep gradle
+dnf search gradle
 
 dnf install gradle # $GRADLE_VERSION
 
