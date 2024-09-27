@@ -1,0 +1,24 @@
+version: 2
+updates:
+  # Keep GitHub Actions up to date
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+  # Keep Docker base images up to date
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+  # (Optional) Monitor Dockerfiles in your image directories
+  - package-ecosystem: "docker"
+    directory: "/images/common-build"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "docker"
+    directory: "/images/deploy"
+    schedule:
+      interval: "weekly"
