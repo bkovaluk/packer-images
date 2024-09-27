@@ -1,6 +1,6 @@
-# Packer Project Repository
+# Packer Images Repository
 
-Welcome to the Packer Project Repository. This project automates the creation of Docker images using HashiCorp Packer, providing a consistent and repeatable build process for development and deployment environments.
+Welcome to the Packer Images Repository. This project automates the creation of Docker images using HashiCorp Packer, providing a consistent and repeatable build process for development and deployment environments.
 
 ## Table of Contents
 
@@ -23,7 +23,7 @@ This repository contains Packer configurations and scripts to build Docker image
 The repository is organized as follows:
 
 ~~~
-packer-project/
+packer-images/
 ├── images/
 │   ├── common-build/
 │   │   ├── scripts/
