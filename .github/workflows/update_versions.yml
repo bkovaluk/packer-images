@@ -30,4 +30,4 @@ jobs:
           commit_message: 'chore: update tool versions'
           branch: ${{ github.ref }}
           file_pattern: |
-            **/variables.pkr.hcl
+            **/variables.pkrvars.hcl
