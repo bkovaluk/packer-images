@@ -32,6 +32,10 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y unzip
 
+      - name: Packer init
+        working-directory: images/common-deploy
+        run: packer init common-deploy.pkr.hcl
+
       - name: Build Image
         working-directory: images/common-deploy
         run: packer build common-deploy.pkr.hcl
