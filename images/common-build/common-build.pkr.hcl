@@ -7,8 +7,6 @@ packer {
   }
 }
 
-includes = ["../../variables/global.pkr.hcl", "variables.pkr.hcl"]
-
 source "docker" "common-build" {
   image  = var.source_image
   commit = true
