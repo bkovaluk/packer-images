@@ -41,7 +41,6 @@ build {
   provisioner "shell" {
     environment_vars = [
       "NODE_VERSION=${var.node_version}",
-      "GRADLE_VERSION=${var.gradle_version}",
       "JAVA_PACKAGE=${var.java_package}",
     ]
     scripts = [
