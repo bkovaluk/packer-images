@@ -72,6 +72,6 @@ build {
 
   post-processor "docker-tag" {
     repository = "${var.dockerhub_username}/common-deploy-image"
-    tag        = "latest"
+    tag        = ["latest"]
   }
 }
