@@ -34,11 +34,11 @@ jobs:
 
       - name: Packer init
         working-directory: images/common-deploy
-        run: packer init common-deploy.pkr.hcl
+        run: packer init .
 
       - name: Build Image
         working-directory: images/common-deploy
-        run: packer build common-deploy.pkr.hcl
+        run: packer build .
 
       # - name: Test Image
       #   run: |
