@@ -136,4 +136,4 @@ amazon-cloudwatch-agent.json
 agent.jar
 
 # Secret Pkrvars
-secrets.pkrvars.hcl
+secrets.pkr*.hcl

@@ -34,7 +34,7 @@ jobs:
 
       - name: Build Image
         working-directory: images/common-deploy
-        run: packer build -var-file=variables.pkrvars.hcl common-deploy.pkr.hcl
+        run: packer build common-deploy.pkr.hcl
 
       # - name: Test Image
       #   run: |

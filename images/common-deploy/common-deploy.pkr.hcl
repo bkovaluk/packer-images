@@ -1,3 +1,31 @@
+// images/common-deploy/common-deploy.pkr.hcl
+
+variable "dockerhub_username" {
+  type      = string
+  sensitive = true
+}
+
+variable "terraform_version" {
+  type    = string
+  default = "1.5.6"
+}
+
+variable "packer_version" {
+  type    = string
+  default = "1.9.2"
+}
+
+variable "aws_cli_version" {
+  type    = string
+  default = "2.13.8"
+}
+
+variable "kubectl_version" {
+  type    = string
+  default = "latest"
+}
+
+
 packer {
   required_plugins {
     docker = {
@@ -18,10 +46,10 @@ build {
 
   provisioner "shell" {
     environment_vars = [
-      "TERRAFORM_VERSION={{user `terraform_version`}}",
-      "PACKER_VERSION={{user `packer_version`}}",
-      "AWS_CLI_VERSION={{user `aws_cli_version`}}",
-      "KUBECTL_VERSION"={{user `kubectl_version`}}
+      "TERRAFORM_VERSION=${var.terraform_version}",
+      "PACKER_VERSION=${var.packer_version}",
+      "AWS_CLI_VERSION=${var.aws_cli_version}",
+      "KUBECTL_VERSION"=${var.kubectl_version}
     ]
     scripts = [
       "../../shared-scripts/update_system.sh",
