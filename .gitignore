@@ -134,3 +134,6 @@ amazon-cloudwatch-agent.json
 
 # Ignore Jenkins Agent Files (if applicable)
 agent.jar
+
+# Secret Pkrvars
+secrets.pkrvars.hcl
