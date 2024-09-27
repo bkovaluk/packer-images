@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # Node.js version passed as an environment variable or default to 14.x
-NODE_VERSION="${NODE_VERSION:-14.x}"
+NODE_VERSION="${NODE_VERSION:-22.x}"
 
 echo "Installing Node.js version $NODE_VERSION..."
 
