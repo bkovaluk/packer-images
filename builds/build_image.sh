@@ -16,7 +16,7 @@ usage() {
 
 parse_args() {
   IMAGE_NAME=""
-  VARIABLES_FILE="variables.pkrvars.hcl"
+  VARIABLES_FILE="variables.auto.pkrvars.hcl"
   PACKER_FILE=""
 
   while getopts ":i:v:p:h" opt; do
