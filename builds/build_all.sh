@@ -1,4 +1,4 @@
 #!/bin/bash
 
-./build_common.sh
-./build_deploy.sh
+./common_build.sh
+./common_deploy.sh
